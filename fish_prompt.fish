@@ -6,7 +6,6 @@ end
 function _is_git_dirty
     echo (command git status -s --ignore-submodules=dirty ^/dev/null)
 end
-set -l shortened_hostname hostname | sed -ne 's,^\(.\).*\(.\)$,\1\2,p' | tr '[:upper:]' '[:lower:]'
 
 function fish_prompt
     set -l blue (set_color blue)
@@ -14,7 +13,7 @@ function fish_prompt
     set -l normal (set_color normal)
 
     set -l lambda "λ"
-    set -l shortened_hostname hostname | sed -ne 's,^\(.\).*\(.\)$,\1\2,p' | tr '[:upper:]' '[:lower:]'
+    set -l shortened_hostname (echo (hostname) | sed -ne 's,^\(.\).*\(.\)$,\1\2,p' | tr '[:upper:]' '[:lower:]')
     set -l cwd $blue(basename (prompt_pwd))
 
     if [ (_git_branch_name) ]
