@@ -13,7 +13,7 @@ function fish_prompt
     set -l green (set_color green)
     set -l normal (set_color normal)
 
-    set -l lambda "𝛌"
+    set -l lambda "λ"
     set -l shortened_hostname hostname | sed -ne 's,^\(.\).*\(.\)$,\1\2,p' | tr '[:upper:]' '[:lower:]'
     set -l cwd $blue(basename (prompt_pwd))
 
