@@ -15,10 +15,6 @@ function fish_right_prompt
   set -l red (set_color red)
   set -l normal (set_color normal)
   
-  if [ -n "$SSH_CLIENT" ]
-    echo -n -s $red (hostname)
-  end
-  
   if [ "$theme_display_rbenv" = 'yes' ]
     set ruby_info $red(_ruby_version)
 
