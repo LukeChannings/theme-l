@@ -12,7 +12,7 @@ function fish_prompt
     set -l green (set_color green)
     set -l normal (set_color normal)
 
-    set -l lambda "λ"
+    set -l arrow "λ"
     set -l shortened_hostname (echo (hostname) | sed -ne 's,^\(.\).*\(.\)$,\1\2,p' | tr '[:upper:]' '[:lower:]')
     set -l cwd $blue(basename (prompt_pwd))
 
@@ -27,9 +27,7 @@ function fish_prompt
     end
 
     if [ "$SSH_TTY" ]
-        set -l arrow "$lambda$shortened_hostname."
-    else
-        set -l arrow $lambda
+        set arrow "$arrow.$shortened_hostname"
     end
 
     echo -n -s $cwd $git_info $normal ' ' $arrow ' '
