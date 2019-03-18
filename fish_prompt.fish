@@ -27,7 +27,7 @@ function fish_prompt
     end
 
     if [ "$SSH_TTY" ]
-        set arrow "$arrow.$shortened_hostname"
+        set arrow "$arrow."(set_color red)"$shortened_hostname"(set_color normal)
     end
 
     echo -n -s $cwd $git_info $normal ' ' $arrow ' '
